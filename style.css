@@ -1,0 +1,153 @@
+:root{
+
+/* ## Primary */
+
+--Red: hsl(4, 100%, 67%);
+
+/* ## Neutrals */
+
+--Blue800: hsl(234, 29%, 20%);
+--Blue700: hsl(235, 18%, 26%);
+--Grey: hsl(0, 0%,58%);
+--White: hsl(0, 0%, 100%);
+
+/* ## Typography */
+
+--fontSize: 16px;
+--fontFamily: "Roboto", sans-serif ; 
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Blue700);
+    color: var(--Blue800);
+    font-family: var(--fontFamily);
+    font-weight: 400;
+}
+
+.card_container{
+    display: flex;
+    background-color: var(--White);
+    border-radius: 20px;
+    padding: 1rem;
+    width: 53rem;
+    height: 55vh;
+    
+}
+
+.sign_up{
+    padding: 3rem 2.2rem;
+}
+
+.card_container h1{
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.card_header p{
+    font-size: var(--fontSize);
+    margin-top: 1rem;
+}
+
+
+.features{
+    margin-top: 1.5rem;
+
+}
+
+.features li{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    font-size: var(--fontSize);
+    font-weight: 400;
+}
+
+.features > li > img  {
+    width: 20px;
+    margin-right: 1rem;
+    
+}
+
+.card_submit_container{
+    margin-top: 3rem;
+}
+
+.card_submit_container label{
+    font-size: 0.8rem;
+   display: block;
+   font-weight: 700;
+   margin-bottom: 0.5rem;
+}
+
+.card_submit_container input{
+    height: 2rem;
+    padding: 1.5rem;
+    width: 100%;
+    display: inline-block;
+    border-radius: 5px;
+    border: 1px solid var(--Grey);
+    margin-top: 0.5rem;
+    font-size: 1rem;    
+    color: var(--Blue800);
+}
+
+input:active{
+    border: 1px solid red;
+}
+
+/* input:invalid {
+  border: 1px solid red;
+} */
+
+.card_submit_container button{
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 5px;
+    padding: 1rem;
+    border: 1px solid var(--Grey);
+    color: var(--White);
+  background: linear-gradient(to right, var(--Blue800), var(--Blue800));
+    font-weight: 700;
+    margin-bottom: 1rem;
+    transition: 0.2s ease;
+    cursor: pointer;
+
+}   
+
+
+
+button:hover{
+    background: linear-gradient(to right, #FF5E7D, #FF7E42);
+    border: none;
+    box-shadow:    0 10px 15px rgba(255, 94, 125, 0.3), 0 10px 25px rgba(255, 126, 66, 0.2); 
+    transition: 0.2s ease;
+    transform: scale(1.01);
+}
+
+.invisible{
+display: none;
+}
+
+.visible{
+display: block;
+}
+
+
+
+.success{
+    display: none;
+}
+

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Sign-up form start -->
+
+  <div class="card_container">
+    <div class="sign_up">
+      <div class="card_header">
+        <h1>Stay updated!</h1>
+        <p>Join 60,000+ product managers receiving monthly updates on:</p>
+      </div>
+        <ul class="features">
+          <li><img src="./assets/images/icon-success.svg" alt=""> Product discovery and building what matters</li>
+          <li><img src="./assets/images/icon-success.svg" alt=""> Measuring to ensure updates are a success</li>
+          <li><img src="./assets/images/icon-success.svg" alt=""> And much more!</li>
+        </ul>
+
+      <form action="" class="card_submit_container" id="form">
+        <label for="email">Email address</label>
+        <input class =" email" placeholder="email@company.com" id="email" name ="email" type="email" ></input>
+        <button type ="submit" class="submit_btn">Subscribe to monthly newsletter</button>
+      </form>
+    </div>
+
+    <img src="./assets/images/illustration-sign-up-desktop.svg" alt="">
+
+    <!-- Sign-up form end -->
+
+    <!-- Success message start -->
+    <div class="success">
+      Thanks for subscribing!
+      A confirmation email has been sent to ash@loremcompany.com.
+      Please open it and click the button inside to confirm your subscription.
+      Dismiss message
+    </div>
+  </div>
+
+  <!-- Success message end -->
+  
+  <script>
+    
+    const form = document.getElementById('form');
+
+    function handleSubmit(e) {
+      e.preventDefault();
+
+      const data = {};
+      const fields = e.target.querySelectorAll(".email");
+
+      for(const field of fields){
+        data[field.name] = field.value; 
+        validateEmail(field.value)
+      }
+      
+      console.log(data)
+    }
+
+  function validateEmail(email) {
+  if (!email) return 'Email is required';
+
+  const isValidEmail = /^\S+@\S+$/g
+  if (!isValidEmail.test(email)) {
+    return 'Please enter a valid email';
+  }
+
+  return '';
+}
+
+    form.addEventListener('submit', handleSubmit);
+
+
+    // button.addEventListener('click' , function(){
+    //   signUp.classList.add('invisble')
+    //   success.classList.add('visble')
+    // })
+
+  </script>
+</body>
+</html>
