@@ -29,52 +29,66 @@
         </ul>
 
       <form action="" class="card_submit_container" id="form">
-        <label for="email">Email address</label>
-        <input class =" email" placeholder="email@company.com" id="email" name ="email" type="email" ></input>
+        <label class="email_label" for="email">Email address<span class="error_msg">valid email required</span></label>
+
+        <input class ="email" placeholder="email@company.com" id="email" name ="email"  ></input>
         <button type ="submit" class="submit_btn">Subscribe to monthly newsletter</button>
       </form>
     </div>
 
-    <img src="./assets/images/illustration-sign-up-desktop.svg" alt="">
-
+    <div class="img"></div>
     <!-- Sign-up form end -->
 
     <!-- Success message start -->
-    <div class="success">
-      Thanks for subscribing!
-      A confirmation email has been sent to ash@loremcompany.com.
-      Please open it and click the button inside to confirm your subscription.
-      Dismiss message
-    </div>
+  
   </div>
-
+  <div class="success">
+    <div>
+    <img src="./assets/images/icon-success.svg" alt="">
+        <h1>Thanks for subscribing!</h1>
+        <p>
+          A confirmation email has been sent to <span>ash@loremcompany.com</span>.
+          Please open it and click the button inside to confirm your subscription.
+        </p>
+      </div>
+      <button>Dismiss message</button>
+    </div>
   <!-- Success message end -->
   
   <script>
     
-    const form = document.getElementById('form');
+  const form = document.getElementById('form');
+  const error_msg = document.querySelector(".error_msg");
+  const signUp = document.querySelector(".card_container")
+  const success = document.querySelector(".success")
 
-    function handleSubmit(e) {
-      e.preventDefault();
+  function handleSubmit(e) {
+  e.preventDefault();
 
-      const data = {};
-      const fields = e.target.querySelectorAll(".email");
+  const data = {};
+  const field = e.target.querySelector(".email"); 
 
-      for(const field of fields){
-        data[field.name] = field.value; 
-        validateEmail(field.value)
-      }
-      
-      console.log(data)
-    }
+  data[field.name] = field.value;
+  validateEmail(field.value);
 
-  function validateEmail(email) {
-  if (!email) return 'Email is required';
+}
 
-  const isValidEmail = /^\S+@\S+$/g
+function validateEmail(email) {
+  if (!email.trim()) return 'Email is required';
+
+  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   if (!isValidEmail.test(email)) {
-    return 'Please enter a valid email';
+  error_msg.classList.add("visible"); 
+  
+  const email_input = document.querySelector(".email");
+
+  email_input.classList.add("error")
+    
+  return 'Please enter a valid email';
   }
+    signUp.classList.add('invisible')
+    success.classList.add('visible')
 
   return '';
 }
